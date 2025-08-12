@@ -9,7 +9,7 @@
     "start": "electron .",
     "start:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "package": "electron-builder --dir",
-    "dist": "electron-builder --mac --win --linux"
+    "dist": "electron-builder --win --linux"
   },
   "devDependencies": {
     "electron": "^26.0.0",
