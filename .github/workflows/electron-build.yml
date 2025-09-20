@@ -10,10 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+- name: Cache node modules
+  uses: actions/cache@v3
+  with:
+    path: ~/.npm
+    key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+    restore-keys: |
+      ${{ runner.os }}-node-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
@@ -25,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: script-studio-windows
-          path: dist/*.exe
+          path: dist/**/*.exe
