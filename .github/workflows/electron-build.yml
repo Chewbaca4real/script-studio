@@ -23,11 +23,8 @@ jobs:
       - name: Build Windows installer
         run: npm run dist
 
-      - name: Upload artifact
+      - name: Upload Windows installer
         uses: actions/upload-artifact@v3
         with:
-          name: script-studio-windows
-          path: dist/*.exe
-
           name: script-studio-windows
           path: dist/**/*.exe
